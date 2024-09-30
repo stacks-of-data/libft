@@ -12,7 +12,7 @@ SRCS = \
 	ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 	ft_lstclear.c ft_lstiter.c ft_lstmap.c printf_putunbr.c \
 	printf_putnbr.c printf_utils.c  pointer_print.c hex_print.c \
-	get_digits_amount.c ft_printf.c free_array.c
+	get_digits_amount.c ft_printf.c free_array.c ft_abs.c
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 
