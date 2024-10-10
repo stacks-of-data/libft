@@ -19,6 +19,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define BUFFER_SIZE 4096
+
 typedef struct s_list
 {
 	void			*content;
@@ -41,6 +43,7 @@ int				ft_memcmp(const void *s1, const void *s2, unsigned int size);
 int				ft_strncmp(const char *s1, const char *s2, unsigned int size);
 int				ft_lstsize(t_list *lst);
 int				ft_abs(int x);
+int				find_newline(char *str);
 char			*ft_itoa(int n);
 char			*ft_strnstr(char *big, char *little, unsigned int n);
 char			*ft_strrchr(const char *str, int c);
