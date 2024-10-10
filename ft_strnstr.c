@@ -28,7 +28,7 @@ char	*ft_strnstr(char *big, char *little, unsigned int n)
 			j++;
 			if (!little[j])
 				return (big + i);
-		}	
+		}
 		i++;
 	}
 	return (0);
