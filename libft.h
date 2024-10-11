@@ -70,6 +70,7 @@ char			*ft_strchr(const char *str, int c);
 char			*ft_strdup(const char *str);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char			*get_next_line(int fd);
 char			**ft_split(const char *s, char c);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
