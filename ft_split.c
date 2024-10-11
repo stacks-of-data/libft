@@ -36,12 +36,7 @@ static char	*split_process(const char *s, int *start, int *track, char c)
 	if (*start - *track == 0)
 		res = ft_substr(s, *track, 1);
 	else
-	{
-		if (!s[*start + 1])
-			res = ft_substr(s, *track, *start - *track + 1);
-		else
-			res = ft_substr(s, *track, *start - *track);
-	}
+		res = ft_substr(s, *track, *start - *track);
 	if (!s[*start + 1])
 		(*start)++;
 	while (s[*start] == c)
@@ -126,3 +121,4 @@ char	**ft_split(const char *s, char c)
 	search_delimiters_and_split(s, res, c);
 	return (res);
 }
+
