@@ -108,7 +108,12 @@ char	**ft_split(const char *s, char c)
 
 	if (!*s)
 	{
-		res = calloc(1, sizeof(char *));
+		res = malloc(sizeof(char *));
+		if (!res)
+			return (0);
+		*res = ft_strdup("");
+		if (!*res)
+			return (0);
 		return (res);
 	}
 	lst = extract_words(s, c);
