@@ -3,122 +3,123 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsaleh <amsaleh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 11:53:18 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/09/24 21:08:26 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/12 20:37:38 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	get_str_start_end(const char *s, char c, int *start, int *end)
+int	add_word_lst(const char *s, int i, int j, t_list **lst)
 {
-	int	i;
+	t_list	*new_lst;
+	char	*temp;
+
+	temp = ft_substr(s, j, i - j);
+	if (!temp)
+		return (0);
+	if (!*lst)
+	{
+		*lst = ft_lstnew(temp);
+		if (!*lst)
+			return (0);
+		return (1);
+	}
+	new_lst = ft_lstnew(temp);
+	if (!new_lst)
+		return (0);
+	ft_lstadd_back(lst, new_lst);
+	return (1);
+}
+
+t_list	*extract_words(const char *s, char c)
+{
+	t_list	*lst;
+	int		i;
+	int		j;
 
 	i = 0;
+	lst = 0;
 	while (s[i] == c)
 		i++;
-	*start = i;
-	while (s[i])
-		i++;
-	while (s[i - 1] == c)
-		i--;
-	*end = i;
-}
-
-static char	*split_process(const char *s, int *start, int *track, char c)
-{
-	char	*res;
-
-	if (!s[*start])
-		(*start)--;
-	if (*start - *track == 0)
-		res = ft_substr(s, *track, 1);
-	else
-		res = ft_substr(s, *track, *start - *track);
-	if (!s[*start + 1])
-		(*start)++;
-	while (s[*start] == c)
-		(*start)++;
-	*track = *start;
-	return (res);
-}
-
-static void	search_delimiters_and_split(const char *s, char **res, char c)
-{
-	int	start;
-	int	end;
-	int	track;
-	int	flag;
-
-	get_str_start_end(s, c, &start, &end);
-	track = start;
-	flag = 0;
-	while (start < end + 1)
-	{
-		if ((s[start] == c || !s[start]) && !flag)
-		{
-			if (!s[start])
-				flag = 1;
-			*res = split_process(s, &start, &track, c);
-			if (!*res)
-				free_array((void **)res);
-			if (!*res)
-				return ;
-			res++;
-		}
-		else
-			start++;
-	}
-	*res = 0;
-}
-
-static int	get_delimiters_count(const char *s, char c)
-{
-	int	i;
-	int	res;
-
-	i = 0;
-	res = 0;
+	j = i;
 	while (s[i])
 	{
 		if (s[i] == c)
 		{
-			res++;
-			while (s[i] == c)
+			if (!add_word_lst(s, i, j, &lst))
+				return (0);
+			while (s[i + 1] == c)
 				i++;
+			j = i + 1;
 		}
 		i++;
 	}
+	if (i != j)
+		if (!add_word_lst(s, i - 1, j, &lst))
+			return (0);
+	return (lst);
+}
+
+char	**add_words_arr(t_list *lst)
+{
+	char	**res;
+	t_list	*node;
+	int		i;
+
+	i = 0;
+	res = calloc(ft_lstsize(lst) + 1, sizeof(char *));
+	if (!res)
+	{
+		ft_lstclear(&lst, &free);
+		return (0);
+	}
+	node = lst;
+	while (node)
+	{
+		res[i] = node->content;
+		node = node->next;
+		i++;
+	}
 	return (res);
+}
+
+void	free_lst(t_list **lst)
+{
+	t_list	*node_next;
+	t_list	*node;
+
+	node = *lst;
+	while (node)
+	{
+		node_next = node->next;
+		free(node);
+		node = node_next;
+	}
+	*lst = 0;
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	int		c_count;
+	t_list	*lst;
 
-	c_count = get_delimiters_count(s, c);
-	if (!c_count)
+	if (!*s)
 	{
-		if (!ft_strlen(s))
-		{
-			res = malloc(sizeof(char *));
-			if (!res)
-				return (0);
-			res[0] = 0;
-			return (res);
-		}
-		res = malloc(2 * sizeof(char *));
-		res[0] = ft_strdup(s);
-		res[1] = 0;
+		res = calloc(1, sizeof(char *));
 		return (res);
 	}
-	res = malloc((c_count + 2) * sizeof(char *));
-	if (!res)
+	lst = extract_words(s, c);
+	if (!lst)
 		return (0);
-	search_delimiters_and_split(s, res, c);
+	res = add_words_arr(lst);
+	if (!res)
+	{
+		ft_lstclear(&lst, &free);
+		return (0);
+	}
+	free_lst(&lst);
 	return (res);
 }
-

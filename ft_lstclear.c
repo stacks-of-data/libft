@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 12:41:14 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/09/01 13:02:20 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/12 20:35:49 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*node;
 
 	node = *lst;
-	if (!node)
+	if (!node || !del)
 		return ;
 	while (node)
 	{
