@@ -113,7 +113,7 @@ char	**ft_split(const char *s, char c)
 			return (0);
 		*res = ft_strdup("");
 		if (!*res)
-			return (0);
+			free(res);
 		return (res);
 	}
 	lst = extract_words(s, c);
