@@ -24,10 +24,14 @@ int	add_word_lst(const char *s, int i, int j, t_list **lst)
 	{
 		*lst = ft_lstnew(temp);
 		if (!*lst)
+			free(temp);
+		if (!*lst)
 			return (0);
 		return (1);
 	}
 	new_lst = ft_lstnew(temp);
+	if (!new_lst)
+		free(temp);
 	if (!new_lst)
 		return (0);
 	ft_lstadd_back(lst, new_lst);
@@ -58,8 +62,7 @@ t_list	*extract_words(const char *s, char c)
 		i++;
 	}
 	if (i != j)
-		if (!add_word_lst(s, i - 1, j, &lst))
-			return (0);
+		add_word_lst(s, i, j, &lst);
 	return (lst);
 }
 
@@ -106,19 +109,9 @@ char	**ft_split(const char *s, char c)
 	char	**res;
 	t_list	*lst;
 
-	if (!*s)
-	{
-		res = malloc(sizeof(char *));
-		if (!res)
-			return (0);
-		*res = ft_strdup("");
-		if (!*res)
-			free(res);
-		return (res);
-	}
 	lst = extract_words(s, c);
 	if (!lst)
-		return (0);
+		return (calloc(1, sizeof(char *)));
 	res = add_words_arr(lst);
 	if (!res)
 	{
