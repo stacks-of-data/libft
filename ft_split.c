@@ -6,118 +6,88 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 11:53:18 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/10/12 20:37:38 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/14 18:43:25 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	add_word_lst(const char *s, int i, int j, t_list **lst)
+static int	add_word_arr(const char *s, t_split split_se, char **arr, int arr_i)
 {
-	t_list	*new_lst;
-	char	*temp;
-
-	temp = ft_substr(s, j, i - j);
-	if (!temp)
-		return (0);
-	if (!*lst)
+	arr[arr_i] = ft_substr(s, split_se.start, split_se.end - split_se.start);
+	if (!arr[arr_i])
 	{
-		*lst = ft_lstnew(temp);
-		if (!*lst)
-			free(temp);
-		if (!*lst)
-			return (0);
-		return (1);
-	}
-	new_lst = ft_lstnew(temp);
-	if (!new_lst)
-		free(temp);
-	if (!new_lst)
+		free_array((void **)arr);
 		return (0);
-	ft_lstadd_back(lst, new_lst);
+	}
 	return (1);
 }
 
-t_list	*extract_words(const char *s, char c)
+static int	extract_words(const char *s, char c, char **arr)
 {
-	t_list	*lst;
-	int		i;
-	int		j;
+	t_split	split_se;
+	int		arr_i;
 
-	i = 0;
-	lst = 0;
-	while (s[i] == c)
-		i++;
-	j = i;
-	while (s[i])
+	split_se.end = 0;
+	arr_i = 0;
+	while (s[split_se.end] == c)
+		split_se.end++;
+	split_se.start = split_se.end;
+	while (s[split_se.end])
 	{
-		if (s[i] == c)
+		if (s[split_se.end] == c)
 		{
-			if (!add_word_lst(s, i, j, &lst))
+			if (!add_word_arr(s, split_se, arr, arr_i))
 				return (0);
-			while (s[i + 1] == c)
-				i++;
-			j = i + 1;
+			arr_i++;
+			while (s[split_se.end + 1] == c)
+				split_se.end++;
+			split_se.start = split_se.end + 1;
 		}
-		i++;
+		split_se.end++;
 	}
-	if (i != j)
-		add_word_lst(s, i, j, &lst);
-	return (lst);
+	if (split_se.start != split_se.end)
+		return (add_word_arr(s, split_se, arr, arr_i));
+	return (1);
 }
 
-char	**add_words_arr(t_list *lst)
+static int	words_count(const char *s, char c)
 {
-	char	**res;
-	t_list	*node;
-	int		i;
+	int	i;
 
 	i = 0;
-	res = calloc(ft_lstsize(lst) + 1, sizeof(char *));
-	if (!res)
-	{
-		ft_lstclear(&lst, &free);
+	if (!*s)
 		return (0);
-	}
-	node = lst;
-	while (node)
+	while (*s == c)
+		s++;
+	while (*s)
 	{
-		res[i] = node->content;
-		node = node->next;
+		if (*s == c)
+		{
+			while (*s == c)
+				s++;
+			i++;
+		}
+		else
+			s++;
+	}
+	if (*(s - 1) != c)
 		i++;
-	}
-	return (res);
-}
-
-void	free_lst(t_list **lst)
-{
-	t_list	*node_next;
-	t_list	*node;
-
-	node = *lst;
-	while (node)
-	{
-		node_next = node->next;
-		free(node);
-		node = node_next;
-	}
-	*lst = 0;
+	return (i);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	t_list	*lst;
+	int		count;
 
-	lst = extract_words(s, c);
-	if (!lst)
-		return (calloc(1, sizeof(char *)));
-	res = add_words_arr(lst);
+	count = words_count(s, c);
+	if (!count)
+		return (ft_calloc(1, sizeof(char *)));
+	res = ft_calloc(words_count(s, c) + 1, sizeof(char *));
 	if (!res)
-	{
-		ft_lstclear(&lst, &free);
 		return (0);
-	}
-	free_lst(&lst);
+	if (!extract_words(s, c, res))
+		return (0);
 	return (res);
 }

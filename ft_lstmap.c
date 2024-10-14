@@ -6,37 +6,51 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 13:07:35 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/09/01 14:24:52 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/14 18:43:44 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static t_list	*init(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	void	*content;
+	t_list	*new_lst;
+
+	if (!lst || !f || !del)
+		return (0);
+	content = f(lst->content);
+	new_lst = ft_lstnew(content);
+	if (!new_lst)
+	{
+		del(content);
+		return (0);
+	}
+	return (new_lst);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*first_lst;
 	t_list	*node;
+	t_list	*first_lst;
+	void	*content;
 
-	new_lst = ft_lstnew(0);
-	if (!lst || !f || !del || !new_lst)
+	first_lst = init(lst, f, del);
+	if (!first_lst)
 		return (0);
-	first_lst = new_lst;
-	node = lst;
-	while (node)
+	node = first_lst;
+	while (lst->next)
 	{
-		if (node->content)
-			new_lst->content = f(node->content);
-		if (node->next)
+		lst = lst->next;
+		content = f(lst->content);
+		node->next = ft_lstnew(content);
+		if (!node->next)
 		{
-			new_lst->next = ft_lstnew(0);
-			if (!new_lst->next)
-				free(new_lst->next);
-			if (!new_lst->next)
-				return (0);
+			del(content);
+			ft_lstclear(&first_lst, del);
+			return (0);
 		}
 		node = node->next;
-		new_lst = new_lst->next;
 	}
 	return (first_lst);
 }

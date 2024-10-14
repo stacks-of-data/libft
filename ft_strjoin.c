@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:20:35 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/08/27 11:45:14 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:40:31 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	res = malloc(((s1_len + s2_len) + 1) * sizeof(char *));
+	res = ft_calloc(s1_len + s2_len + 1, sizeof(char));
 	if (!res)
 		return (0);
 	i = 0;
@@ -35,6 +35,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		res[i] = s2[i - s1_len];
 		i++;
 	}
-	res[i] = 0;
 	return (res);
 }

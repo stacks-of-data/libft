@@ -6,13 +6,13 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:47:04 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/08/26 16:42:35 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:11:44 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_whitespace(char c)
+static int	is_whitespace(char c)
 {
 	if ((c >= 9 && c <= 0x0D) || c == ' ')
 		return (1);

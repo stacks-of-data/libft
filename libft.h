@@ -27,6 +27,12 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_split
+{
+	size_t	start;
+	size_t	end;
+}			t_split;
+
 unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
 unsigned int	ft_strlen(const char *str);
