@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsaleh <amsaleh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/09/24 19:42:55 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/08 01:18:03 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int				ft_strncmp(const char *s1, const char *s2, unsigned int size);
 int				ft_lstsize(t_list *lst);
 int				ft_abs(int x);
 int				find_newline(char *str);
+long			ft_atol(const char *str);
 char			*ft_itoa(int n);
 char			*ft_strnstr(char *big, char *little, unsigned int n);
 char			*ft_strrchr(const char *str, int c);
