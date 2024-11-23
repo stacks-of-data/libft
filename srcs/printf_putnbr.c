@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:42:56 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 20:13:59 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/23 20:22:30 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	putnbr_finalizer(int n, int flag, int *temp)
 {
 	int	i;
 	int	res;
-	
+
 	i = extract_digits(temp, n);
 	putnbr_helper(i, temp);
 	res = get_digits_amount(n) + flag;

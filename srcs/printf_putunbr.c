@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:42:56 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 20:09:32 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/23 20:22:16 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	printf_putunbr(unsigned int n)
 {
 	int	i;
 	int	temp[11];
-	int res;
+	int	res;
 
 	if (!n)
 	{
