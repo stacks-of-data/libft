@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	res;
+	size_t	res;
 
 	res = 0;
 	while (str[res] != 0)
