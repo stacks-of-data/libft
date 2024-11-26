@@ -35,7 +35,7 @@ typedef struct s_split
 
 unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
-unsigned int	ft_strlen(const char *str);
+size_t		ft_strlen(const char *str);
 int				ft_atoi(const char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
