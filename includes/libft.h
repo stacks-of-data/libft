@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/29 15:10:43 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/29 15:17:51 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_split
 
 unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
-unsigned int	ft_strlen(const char *str);
+size_t			ft_strlen(const char *str);
 int				ft_atoi(const char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
@@ -51,6 +51,7 @@ int				ft_strncmp(const char *s1, const char *s2, unsigned int size);
 int				ft_lstsize(t_list *lst);
 int				ft_abs(int x);
 int				find_newline(char *str);
+int				ft_strcmp(const char *s1, const char *s2);
 long			ft_atol(const char *str);
 char			*ft_itoa(int n);
 char			*ft_strnstr(char *big, char *little, unsigned int n);
