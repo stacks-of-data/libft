@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:35:21 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:17 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/29 15:15:04 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	node = ft_lstlast(*lst);
 	node->next = new;
+	new->prev = node;
 }

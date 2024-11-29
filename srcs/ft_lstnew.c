@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:31:11 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:07 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/11/29 15:11:15 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = malloc(sizeof(t_list));
+	node = ft_calloc(1, sizeof(t_list));
 	if (!node)
 		return (0);
 	node->content = content;
-	node->next = 0;
 	return (node);
 }
