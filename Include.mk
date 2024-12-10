@@ -12,4 +12,5 @@ SRCS = \
 	ft_lstclear.c ft_lstiter.c ft_lstmap.c printf_putunbr.c \
 	printf_putnbr.c printf_utils.c  pointer_print.c hex_print.c \
 	get_digits_amount.c ft_printf.c free_array.c ft_abs.c \
-	find_newline.c get_next_line.c ft_atol.c ft_strcmp.c
+	find_newline.c get_next_line.c ft_atol.c ft_strcmp.c \
+	ft_strtok.c

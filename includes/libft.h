@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/29 15:17:51 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/10 23:06:42 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_split
 	size_t	end;
 }			t_split;
 
+char			*ft_strtok(char *s, char *delimiter);
 unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
 size_t			ft_strlen(const char *str);
