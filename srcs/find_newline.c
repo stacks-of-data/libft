@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
+
 int	find_newline(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

@@ -12,10 +12,10 @@
 
 #include <libft.h>
 
-void	*ft_calloc(unsigned int nitems, unsigned int size)
+void	*ft_calloc(size_t nitems, size_t size)
 {
 	char			*res;
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	res = malloc(nitems * size);

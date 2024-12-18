@@ -12,9 +12,9 @@
 
 #include <libft.h>
 
-int	ft_memcmp(const void *s1, const void *s2, unsigned int size)
+int	ft_memcmp(const void *s1, const void *s2, size_t size)
 {
-	unsigned int		i;
+	size_t				i;
 	const unsigned char	*s1_temp;
 	const unsigned char	*s2_temp;
 

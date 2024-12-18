@@ -14,7 +14,7 @@
 
 void	free_array(void **arr)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (arr[i])

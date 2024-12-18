@@ -12,11 +12,11 @@
 
 #include <libft.h>
 
-char	*ft_substr(char const *s, unsigned int start, unsigned int len)
+char	*ft_substr(char const *s, size_t start, size_t len)
 {
-	char			*res;
-	unsigned int	i;
-	unsigned int	l_len;
+	char	*res;
+	size_t	i;
+	size_t	l_len;
 
 	i = -1;
 	l_len = len;

@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *src, int c, unsigned int size)
+#include <libft.h>
+
+void	*ft_memset(void *src, int c, size_t size)
 {
 	unsigned char	*src_cp;
-	unsigned int	i;
+	size_t			i;
 
 	i = 0;
 	src_cp = src;

@@ -12,10 +12,10 @@
 
 #include <libft.h>
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int size)
+int	ft_strncmp(const char *s1, const char *s2, size_t size)
 {
-	unsigned int	i;
-	unsigned int	len;
+	size_t	i;
+	size_t	len;
 
 	if (ft_strlen(s1) > ft_strlen(s2))
 		len = ft_strlen(s1);

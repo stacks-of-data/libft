@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, void *src, unsigned int n)
+#include <libft.h>
+
+void	*ft_memmove(void *dest, void *src, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	if ((unsigned char *)dest == (unsigned char *)src)
 		return (dest);
