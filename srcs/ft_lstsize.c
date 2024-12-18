@@ -14,7 +14,7 @@
 
 size_t	ft_lstsize(t_list *lst)
 {
-	size_t		i;
+	size_t	i;
 	t_list	*node;
 
 	i = 1;

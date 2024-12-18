@@ -14,7 +14,7 @@
 
 void	*ft_bzero(void *src, size_t size)
 {
-	char			*src_cp;
+	char	*src_cp;
 	size_t	i;
 
 	i = 0;

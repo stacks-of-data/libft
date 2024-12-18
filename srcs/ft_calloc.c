@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	char			*res;
+	char	*res;
 	size_t	i;
 
 	i = 0;

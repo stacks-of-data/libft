@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(char *big, char *little, unsigned int n)
+#include <libft.h>
+
+char	*ft_strnstr(char *big, char *little, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (!little[0])
