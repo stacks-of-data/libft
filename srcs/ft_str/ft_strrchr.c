@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 14:11:13 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/20 01:23:52 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:33:31 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strrchr(const char *str, int c)
 		if (str[i] == (char)c)
 			return ((char *)str + i);
 		if (!i)
-			break;
+			break ;
 		i--;
 	}
 	return (0);
