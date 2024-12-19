@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/10 23:06:42 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:25:08 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 4000
+# define BUFFER_SIZE 4096
 
 typedef struct s_list
 {
@@ -38,6 +38,7 @@ size_t			ft_strlcat(char *dst, char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_lstsize(t_list *lst);
+size_t			ft_strncpy(char *dst, const char *src, size_t size);
 int				ft_atoi(const char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
@@ -50,7 +51,7 @@ int				putstr_range(const char *str, size_t start, size_t end);
 int				ft_memcmp(const void *s1, const void *s2, size_t size);
 int				ft_strncmp(const char *s1, const char *s2, size_t size);
 int				ft_abs(int x);
-int				find_newline(char *str);
+ssize_t			find_newline(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 long			ft_atol(const char *str);
 char			*ft_itoa(int n);
@@ -75,12 +76,13 @@ void			*ft_memchr(const void *src, int c, size_t n);
 void			*ft_memcpy(void *dest, void *src, size_t size);
 void			*ft_memmove(void *dest, void *src, size_t n);
 void			*ft_memset(void *src, int c, size_t size);
+char			*gnl_strjoin(char *s1, char *s2, int n);
+char			*get_next_line(int fd);
 char			*ft_strtok(char *s, char *delimiter);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strdup(const char *str);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmapi(char const *s, char (*f)(size_t, char));
-char			*get_next_line(int fd);
 char			**ft_split(const char *s, char c);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);

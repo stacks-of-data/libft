@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:09:33 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:38 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:06:16 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static char	*handle_edge_case(void)
 
 char	*ft_strtrim(char const *s1, const char *set)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*res;
 
 	start = 0;

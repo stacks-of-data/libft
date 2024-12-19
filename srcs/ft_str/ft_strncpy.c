@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_newline.c                                     :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 23:43:12 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/10/10 23:43:12 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/12/20 01:24:42 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/12/20 01:26:12 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	find_newline(char *str)
+size_t	ft_strncpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (i < size && src[i])
 	{
-		if (str[i] == '\n')
-			return (i);
+		dst[i] = src[i];
 		i++;
 	}
-	return (-1);
+	dst[i] = 0;
+	return (i);
 }

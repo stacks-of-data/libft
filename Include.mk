@@ -1,16 +1,59 @@
 SRCS = \
-	ft_atoi.c ft_isdigit.c ft_memmove.c ft_split.c \
-	ft_strlcpy.c ft_strtrim.c ft_bzero.c ft_isprint.c \
-	ft_memset.c ft_strchr.c ft_strlen.c ft_substr.c \
-	ft_calloc.c ft_itoa.c ft_putchar_fd.c ft_strdup.c \
-	ft_strmapi.c ft_tolower.c ft_isalnum.c ft_memchr.c \
-	ft_putendl_fd.c ft_striteri.c ft_strncmp.c ft_toupper.c \
-	ft_isalpha.c ft_memcmp.c ft_putnbr_fd.c ft_strjoin.c \
-	ft_strnstr.c ft_isascii.c ft_memcpy.c ft_putstr_fd.c \
-	ft_strlcat.c ft_strrchr.c ft_lstnew.c ft_lstadd_front.c \
-	ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-	ft_lstclear.c ft_lstiter.c ft_lstmap.c printf_putunbr.c \
-	printf_putnbr.c printf_utils.c  pointer_print.c hex_print.c \
-	get_digits_amount.c ft_printf.c free_array.c ft_abs.c \
-	find_newline.c get_next_line.c ft_atol.c ft_strcmp.c \
-	ft_strtok.c
+	srcs/ft_common/find_newline.c \
+	srcs/ft_common/ft_tolower.c \
+	srcs/ft_lst/ft_lstnew.c srcs/ft_print/ft_printf.c \
+	srcs/ft_str/ft_split.c \
+	srcs/ft_str/ft_strncmp.c \
+	srcs/ft_common/ft_abs.c \
+	srcs/ft_common/ft_toupper.c	\
+	srcs/ft_lst/ft_lstsize.c \
+	srcs/ft_print/ft_putchar_fd.c \
+	srcs/ft_str/ft_strchr.c \
+	srcs/ft_str/ft_strnstr.c \
+	srcs/ft_common/ft_atoi.c \
+	srcs/ft_common/get_digits_amount.c \
+	srcs/ft_mem/free_array.c \
+	srcs/ft_print/ft_putendl_fd.c \
+	srcs/ft_str/ft_strcmp.c \
+	srcs/ft_str/ft_strrchr.c \
+	srcs/ft_common/ft_atol.c \
+	srcs/ft_lst/ft_lstadd_back.c \
+	srcs/ft_mem/ft_bzero.c \
+	srcs/ft_print/ft_putnbr_fd.c \
+	srcs/ft_str/ft_strdup.c \
+	srcs/ft_str/ft_strtok.c \
+	srcs/ft_common/ft_isalnum.c \
+	srcs/ft_lst/ft_lstadd_front.c \
+	srcs/ft_mem/ft_calloc.c \
+	srcs/ft_print/ft_putstr_fd.c \
+	srcs/ft_str/ft_striteri.c \
+	srcs/ft_str/ft_strtrim.c \
+	srcs/ft_common/ft_isalpha.c \
+	srcs/ft_lst/ft_lstclear.c \
+	srcs/ft_mem/ft_memchr.c \
+	srcs/ft_print/hex_print.c \
+	srcs/ft_str/ft_strjoin.c \
+	srcs/ft_str/ft_substr.c \
+	srcs/ft_common/ft_isascii.c \
+	srcs/ft_lst/ft_lstdelone.c \
+	srcs/ft_mem/ft_memcmp.c \
+	srcs/ft_print/pointer_print.c \
+	srcs/ft_str/ft_strlcat.c \
+	srcs/gnl/get_next_line.c \
+	srcs/ft_common/ft_isdigit.c \
+	srcs/ft_lst/ft_lstiter.c \
+	srcs/ft_mem/ft_memcpy.c \
+	srcs/ft_print/printf_putnbr.c \
+	srcs/ft_str/ft_strlcpy.c \
+	srcs/gnl/gnl_strjoin.c \
+	srcs/ft_common/ft_isprint.c \
+	srcs/ft_lst/ft_lstlast.c \
+	srcs/ft_mem/ft_memmove.c \
+	srcs/ft_print/printf_putunbr.c \
+	srcs/ft_str/ft_strlen.c \
+	srcs/ft_common/ft_itoa.c \
+	srcs/ft_lst/ft_lstmap.c	\
+	srcs/ft_mem/ft_memset.c \
+	srcs/ft_print/printf_utils.c \
+	srcs/ft_str/ft_strmapi.c \
+	srcs/ft_str/ft_strncpy.c
