@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 08:41:16 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/20 01:03:51 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:54:12 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,10 @@ char	*get_next_line(int fd)
 	if (*res && res[ft_strlen(res) - 1] == '\n')
 		return (res);
 	ret_code = gnl_read(fd, &res, &buffer);
-	if (!ret_code || ret_code == -1)
+	if (!ret_code || ret_code == -1 || !*res)
 	{
 		free(buffer);
-		free(res);
-		return (0);
-	}
-	if (!*res)
-	{
+		buffer = 0;
 		free(res);
 		return (0);
 	}
