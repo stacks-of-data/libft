@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 08:41:16 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/20 14:54:12 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:04:07 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	gnl_newline(char *read_buf, char **res, char **buffer)
 	return (1);
 }
 
-int	gnl_read(int fd, char **res, char **buffer)
+size_t	gnl_read(int fd, char **res, char **buffer)
 {
 	ssize_t	read_bytes;
 	char	*read_buf;
