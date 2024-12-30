@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:09:33 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/20 01:06:16 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/31 01:57:50 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strtrim(char const *s1, const char *set)
 			return (0);
 		return (res);
 	}
-	end = ft_strlen(s1) - 1;
+	end = ft_strlen(s1);
 	while (get_if_charset_match(s1[start], set))
 		start++;
 	if (start >= end)
