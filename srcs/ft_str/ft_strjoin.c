@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:20:35 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:52 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/20 01:05:30 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		s1_len;
-	int		s2_len;
-	int		i;
+	size_t	s1_len;
+	size_t	s2_len;
+	size_t	i;
 	char	*res;
 
 	s1_len = ft_strlen(s1);

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 09:28:10 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:21 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/09/01 12:41:14 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/12/15 01:19:08 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_calloc(unsigned int nitems, unsigned int size)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char			*res;
-	unsigned int	i;
+	t_list	*node_next;
+	t_list	*node;
 
-	i = 0;
-	res = malloc(nitems * size);
-	if (!res)
-		return (0);
-	while (i < nitems * size)
+	if (!lst)
+		return ;
+	node = *lst;
+	if (!node || !del)
+		return ;
+	while (node)
 	{
-		res[i] = 0;
-		i++;
+		del(node->content);
+		node_next = node->next;
+		free(node);
+		node = node_next;
 	}
-	return ((void *)res);
+	*lst = 0;
 }

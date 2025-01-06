@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 14:11:13 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:46 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/31 20:25:12 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/11/23 19:56:06 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strrchr(const char *str, int c)
+size_t	ft_lstsize(t_list *lst)
 {
-	int		len;
-	int		i;
+	size_t	i;
+	t_list	*node;
 
-	len = ft_strlen(str);
-	i = len;
-	if (!c)
-		return ((char *)str + i);
-	while (i >= 0)
+	i = 1;
+	if (!lst)
+		return (0);
+	if (!lst->next)
+		return (1);
+	node = lst->next;
+	while (node)
 	{
-		if (str[i] == (char)c)
-			return ((char *)str + i);
-		i--;
+		i++;
+		node = node->next;
 	}
-	return (0);
+	return (i);
 }

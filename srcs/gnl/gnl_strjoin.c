@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   gnl_strjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 20:25:12 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:06 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/11/25 11:47:43 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/12/20 01:25:56 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_lstsize(t_list *lst)
+char	*gnl_strjoin(char *s1, char *s2, int n)
 {
-	int		i;
-	t_list	*node;
+	char	*res;
 
-	i = 1;
-	if (!lst)
-		return (0);
-	if (!lst->next)
-		return (1);
-	node = lst->next;
-	while (node)
-	{
-		i++;
-		node = node->next;
-	}
-	return (i);
+	res = ft_strjoin(s1, s2);
+	if (n >= 1)
+		free(s1);
+	if (n >= 2)
+		free(s2);
+	return (res);
 }

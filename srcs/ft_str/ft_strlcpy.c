@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_array.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 21:22:10 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:33 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/27 10:41:49 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/08/27 10:41:50 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	free_array(void **arr)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
+	j = 0;
+	while (src[i])
 		i++;
+	if (!size)
+		return (i);
+	while (j < size - 1 && src[j])
+	{
+		dst[j] = src[j];
+		j++;
 	}
-	free(arr);
+	if (size > 0)
+		dst[j] = 0;
+	return (i);
 }

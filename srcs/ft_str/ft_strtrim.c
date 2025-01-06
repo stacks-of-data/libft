@@ -40,8 +40,8 @@ static char	*handle_edge_case(void)
 
 char	*ft_strtrim(char const *s1, const char *set)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*res;
 
 	start = 0;
@@ -52,7 +52,7 @@ char	*ft_strtrim(char const *s1, const char *set)
 			return (0);
 		return (res);
 	}
-	end = ft_strlen(s1) - 1;
+	end = ft_strlen(s1);
 	while (get_if_charset_match(s1[start], set))
 		start++;
 	if (start > end)

@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 10:41:38 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:51 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/25 15:55:23 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/08/29 19:02:53 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-unsigned int	ft_strlcat(char *dst, char *src, unsigned int size)
+void	*ft_memchr(const void *src, int c, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t			i;
+	unsigned char	*res;
 
 	i = 0;
-	j = 0;
-	while (dst[i] && i < size)
-		i++;
-	if (i >= size)
-		return (size + ft_strlen(src));
-	while (j < (size - i) - 1 && src[j])
+	res = (unsigned char *)src;
+	while (i < n)
 	{
-		dst[i + j] = src[j];
-		j++;
+		if (*res == (unsigned char)c)
+			return (res);
+		res++;
+		i++;
 	}
-	if (j < (size - i))
-		dst[i + j] = 0;
-	j = 0;
-	while (src[j])
-		j++;
-	return (i + j);
+	return (0);
 }

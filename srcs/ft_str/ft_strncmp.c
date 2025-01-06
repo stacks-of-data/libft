@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 13:17:05 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:55 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/25 15:13:09 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/11/23 19:55:48 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strchr(const char *str, int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t size)
 {
-	char	*res;
-	int		s_len;
-	int		i;
+	size_t	i;
+	size_t	len;
 
-	s_len = ft_strlen(str);
+	if (ft_strlen(s1) > ft_strlen(s2))
+		len = ft_strlen(s1);
+	else
+		len = ft_strlen(s2);
 	i = 0;
-	while (i < s_len + 1)
+	while (i < size && i < len)
 	{
-		if (str[i] == (char)c)
-		{
-			res = (char *)str + i;
-			return (res);
-		}
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
 	return (0);

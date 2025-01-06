@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 15:13:09 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:48 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/26 09:41:39 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/12/20 01:05:02 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int size)
+char	*ft_strdup(const char *str)
 {
-	unsigned int	i;
-	unsigned int	len;
+	size_t	len;
+	char	*res;
 
-	if (ft_strlen(s1) > ft_strlen(s2))
-		len = ft_strlen(s1);
-	else
-		len = ft_strlen(s2);
-	i = 0;
-	while (i < size && i < len)
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	len = ft_strlen(str);
+	res = malloc((len + 1) * sizeof(char));
+	if (!res)
+		return (0);
+	ft_strlcpy(res, str, len + 1);
+	return (res);
 }

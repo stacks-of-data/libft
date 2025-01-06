@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *src, unsigned int size)
+#include <libft.h>
+
+void	*ft_bzero(void *src, size_t size)
 {
-	char			*src_cp;
-	unsigned int	i;
+	char	*src_cp;
+	size_t	i;
 
 	i = 0;
 	src_cp = src;

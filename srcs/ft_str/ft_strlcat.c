@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 10:14:40 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:25 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/27 10:41:38 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/11/23 19:55:51 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_substr(char const *s, unsigned int start, unsigned int len)
+size_t	ft_strlcat(char *dst, char *src, size_t size)
 {
-	char			*res;
-	unsigned int	i;
-	unsigned int	l_len;
+	size_t	i;
+	size_t	j;
 
-	i = -1;
-	l_len = len;
-	if (start >= ft_strlen(s))
-		return (ft_calloc(1, sizeof(char)));
-	if (l_len + start > ft_strlen(s))
-		l_len = ft_strlen(s) - start;
-	res = ft_calloc((l_len + 1), sizeof(char));
-	if (!res)
-		return (0);
-	while (++i < l_len)
-		res[i] = s[start + i];
-	return (res);
+	i = 0;
+	j = 0;
+	while (dst[i] && i < size)
+		i++;
+	if (i >= size)
+		return (size + ft_strlen(src));
+	while (j < (size - i) - 1 && src[j])
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	if (j < (size - i))
+		dst[i + j] = 0;
+	j = 0;
+	while (src[j])
+		j++;
+	return (i + j);
 }

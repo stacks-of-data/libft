@@ -12,7 +12,7 @@
 
 #include <ft_printf.h>
 
-static void	get_start_end(const char *str, int start, int *end)
+static void	get_start_end(const char *str, size_t start, size_t *end)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ static void	get_start_end(const char *str, int start, int *end)
 	*end = i;
 }
 
-static int	process_data(const char *str, int *end, va_list args)
+static int	process_data(const char *str, size_t *end, va_list args)
 {
 	int		n;
 	char	c;
@@ -57,10 +57,10 @@ static int	process_data(const char *str, int *end, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		start;
-	int		end;
-	int		len;
-	int		n;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	size_t	n;
 
 	end = 0;
 	len = ft_strlen(str);

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 10:41:26 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/08/27 10:41:30 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/25 15:24:55 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/10/14 16:09:11 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(char *big, char *little, unsigned int n)
+#include <libft.h>
+
+void	*ft_memset(void *src, int c, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
+	unsigned char	*src_cp;
+	size_t			i;
 
 	i = 0;
-	if (!little[0])
-		return (big);
-	while (big[i] && i < n)
+	src_cp = src;
+	while (i < size)
 	{
-		j = 0;
-		while (big[i + j] == little[j])
-		{
-			if (i + j >= n)
-				return (0);
-			j++;
-			if (!little[j])
-				return (big + i);
-		}
+		src_cp[i] = c;
 		i++;
 	}
-	return (0);
+	return (src_cp);
 }

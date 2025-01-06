@@ -45,9 +45,9 @@ void	print_char_repeat(char c, int count)
 	write(1, res, count);
 }
 
-int	putstr_range(const char *str, int start, int end)
+int	putstr_range(const char *str, size_t start, size_t end)
 {
-	int		len;
+	size_t	len;
 	char	*sub_str;
 
 	len = end - start;

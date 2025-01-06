@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 21:16:38 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/10 23:24:09 by amsaleh          ###   ########.fr       */
+/*   Updated: 2024/12/13 22:21:57 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strtok(char *s, char *delimiter)
 {
 	static char	*s_save;
 	char		*res;
-	
+
 	if (!delimiter || (!s && !s_save))
 		return (0);
 	if (s)

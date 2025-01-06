@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 10:42:00 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/08/27 10:42:22 by amsaleh          ###   ########.fr       */
+/*   Created: 2024/08/26 14:14:24 by amsaleh           #+#    #+#             */
+/*   Updated: 2024/10/14 16:10:02 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, void *src, unsigned int n)
-{
-	unsigned int	i;
+#include <libft.h>
 
-	if ((unsigned char *)dest == (unsigned char *)src)
+void	*ft_memcpy(void *dest, void *src, size_t size)
+{
+	unsigned char	*dest_temp;
+	unsigned char	*src_temp;
+	size_t			i;
+
+	i = 0;
+	src_temp = src;
+	dest_temp = dest;
+	if (dest == src)
 		return (dest);
-	if ((unsigned char *)dest < (unsigned char *)src)
+	while (i < size)
 	{
-		i = 0;
-		while (i < n)
-		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	}
-	else
-	{
-		i = n;
-		while (i > 0)
-		{
-			((unsigned char *)dest)[i - 1] = ((unsigned char *)src)[i - 1];
-			i--;
-		}
+		*dest_temp = *src_temp;
+		src_temp++;
+		dest_temp++;
+		i++;
 	}
 	return (dest);
 }
