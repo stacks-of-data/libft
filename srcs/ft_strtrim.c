@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:09:33 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:55:38 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/06 14:05:10 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strtrim(char const *s1, const char *set)
 	end = ft_strlen(s1) - 1;
 	while (get_if_charset_match(s1[start], set))
 		start++;
-	if (start >= end)
+	if (start > end)
 	{
 		res = handle_edge_case();
 		return (res);
