@@ -1,7 +1,13 @@
 SRCS = \
 	srcs/ft_common/find_newline.c \
 	srcs/ft_common/ft_tolower.c \
-	srcs/ft_lst/ft_lstnew.c srcs/ft_print/ft_printf.c \
+	srcs/ft_lst/ft_lstnew.c \
+	srcs/ft_print/ft_printf.c \
+	srcs/ft_print/ft_dprintf.c \
+	srcs/ft_print/printf_base.c \
+	srcs/ft_print/printf_calc.c \
+	srcs/ft_print/printf_utils.c \
+	srcs/ft_print/printf_utils2.c \
 	srcs/ft_str/ft_split.c \
 	srcs/ft_str/ft_strncmp.c \
 	srcs/ft_common/ft_abs.c \
@@ -31,29 +37,24 @@ SRCS = \
 	srcs/ft_common/ft_isalpha.c \
 	srcs/ft_lst/ft_lstclear.c \
 	srcs/ft_mem/ft_memchr.c \
-	srcs/ft_print/hex_print.c \
 	srcs/ft_str/ft_strjoin.c \
 	srcs/ft_str/ft_substr.c \
 	srcs/ft_common/ft_isascii.c \
 	srcs/ft_lst/ft_lstdelone.c \
 	srcs/ft_mem/ft_memcmp.c \
-	srcs/ft_print/pointer_print.c \
 	srcs/ft_str/ft_strlcat.c \
 	srcs/gnl/get_next_line.c \
 	srcs/ft_common/ft_isdigit.c \
 	srcs/ft_lst/ft_lstiter.c \
 	srcs/ft_mem/ft_memcpy.c \
-	srcs/ft_print/printf_putnbr.c \
 	srcs/ft_str/ft_strlcpy.c \
 	srcs/gnl/gnl_strjoin.c \
 	srcs/ft_common/ft_isprint.c \
 	srcs/ft_lst/ft_lstlast.c \
 	srcs/ft_mem/ft_memmove.c \
-	srcs/ft_print/printf_putunbr.c \
 	srcs/ft_str/ft_strlen.c \
 	srcs/ft_common/ft_itoa.c \
 	srcs/ft_lst/ft_lstmap.c	\
 	srcs/ft_mem/ft_memset.c \
-	srcs/ft_print/printf_utils.c \
 	srcs/ft_str/ft_strmapi.c \
 	srcs/ft_str/ft_strncpy.c

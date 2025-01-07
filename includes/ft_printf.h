@@ -6,23 +6,39 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:07:27 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/09/04 16:38:47 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 15:59:16 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include <libft.h>
 # include <stdarg.h>
+# include <unistd.h>
+# include <limits.h>
 
-int				ft_printf(const char *str, ...);
-int				pointer_print(void *p);
-int				hex_print(unsigned int n, int flag);
-int				printf_putchar(char c);
-int				printf_putstr(char *s);
-int				printf_putnbr(int n);
-int				printf_putunbr(unsigned int n);
-void			print_char_repeat(char c, int count);
+typedef struct s_printf
+{
+	size_t		start;
+	size_t		end;
+	size_t		fmt_len;
+	size_t		res_i;
+	size_t		res_len;
+	const char	*fmt;
+	char		*res;
+} t_printf;
+
+int		ft_printf(const char *fmt, ...);
+int		printf_base(int fd, const char *fmt, va_list args);
+void	printf_base_calc(t_printf *data, va_list args);
+int		printf_nbrlen(int n);
+void	printf_addnbr(t_printf *data, int n);
+void	printf_addunbr(t_printf *data, unsigned int n);
+void	printf_addpointer(t_printf *data, unsigned long n);
+void	printf_addstr(t_printf *data, char *s);
+void	printf_addchar(t_printf *data, char c);
+void	printf_addhex(t_printf *data, unsigned int n, int mode);
+void	process_data(t_printf *data, va_list args);
 
 #endif

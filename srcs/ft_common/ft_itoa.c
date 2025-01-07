@@ -6,28 +6,11 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:27:46 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/11/23 19:56:19 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 00:23:49 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-static int	get_digits_amount(int n)
-{
-	int	num;
-	int	res;
-
-	num = n;
-	res = 0;
-	if (num < 0)
-		num *= -1;
-	while (num > 0)
-	{
-		num /= 10;
-		res++;
-	}
-	return (res);
-}
 
 static void	number_to_str(int n, int digits_count, char *res)
 {

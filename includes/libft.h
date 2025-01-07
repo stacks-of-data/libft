@@ -6,14 +6,14 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2024/12/20 01:25:08 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 00:26:39 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "ft_printf.h"
+# include <ft_printf.h>
 # include <sys/types.h>
 # include <string.h>
 # include <stdlib.h>
@@ -47,6 +47,7 @@ int				ft_isdigit(int c);
 int				ft_isprint(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+int				get_digits_amount(int n);
 int				putstr_range(const char *str, size_t start, size_t end);
 int				ft_memcmp(const void *s1, const void *s2, size_t size);
 int				ft_strncmp(const char *s1, const char *s2, size_t size);

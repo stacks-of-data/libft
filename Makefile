@@ -1,6 +1,7 @@
 include Include.mk
 
-CFLAGS = -Wall -Wextra -Werror -I./includes
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I./includes -g
 OBJS = $(SRCS:.c=.o)
 HEADERS = includes/libft.h includes/ft_printf.h
 NAME = libft.a

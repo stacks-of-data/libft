@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 15:45:00 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/01/07 15:58:38 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/01/07 16:05:07 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/01/07 16:06:50 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <ft_printf.h>
 
-int	ft_abs(int x)
+int	ft_dprintf(int fd, const char *fmt, ...)
 {
-	if (x < 0)
-	{
-		if (x == INT_MIN)
-			return (x);
-		x *= -1;
-	}
-	return (x);
-}
+	va_list	args;
+	int		res;
+
+	va_start(args, fmt);
+	res = printf_base(fd, fmt, args);
+	va_end(args);
+	return (res);
+} 
