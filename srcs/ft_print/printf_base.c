@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:49:24 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/01/07 16:03:10 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:26:17 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	printf_base_iter(t_printf *data, va_list args)
 	while (data->end < data->fmt_len)
 	{
 		data->start = data->end;
-		get_start_end(&data);
+		get_start_end(data);
 		if (data->end != data->start)
 		{
 			ft_strncpy(data->res + data->res_i,
@@ -64,7 +64,7 @@ static void	printf_base_iter(t_printf *data, va_list args)
 			data->res_i += data->end - data->start;
 		}
 		if (data->fmt[data->end] == '%')
-			process_data(&data, args);
+			process_data(data, args);
 		data->end += 2;
 	}
 }
