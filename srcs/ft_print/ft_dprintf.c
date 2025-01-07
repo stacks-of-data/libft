@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:05:07 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/01/07 16:06:50 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:12:22 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,4 @@ int	ft_dprintf(int fd, const char *fmt, ...)
 	res = printf_base(fd, fmt, args);
 	va_end(args);
 	return (res);
-} 
+}

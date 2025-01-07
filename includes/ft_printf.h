@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:07:27 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/01/07 15:59:16 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:12:50 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ typedef struct s_printf
 	size_t		res_len;
 	const char	*fmt;
 	char		*res;
-} t_printf;
+}	t_printf;
 
 int		ft_printf(const char *fmt, ...);
+int		ft_dprintf(int fd, const char *fmt, ...);
 int		printf_base(int fd, const char *fmt, va_list args);
 void	printf_base_calc(t_printf *data, va_list args);
 int		printf_nbrlen(int n);
